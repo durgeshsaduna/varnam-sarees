@@ -1,3 +1,5 @@
+import { supabase } from "./supabase.js";
+
 
 const app = document.getElementById("app");
 
@@ -365,3 +367,12 @@ footer {
 document.head.appendChild(style);
 
 render();
+
+supabase.auth.getSession().then(({ data, error }) => {
+  if (error) {
+    console.error("Supabase connection error:", error.message);
+  } else {
+    console.log("Varnam Sarees connected to Supabase!");
+  }
+});
+
