@@ -3,6 +3,14 @@ import { supabase } from "./supabase.js";
 
 const app = document.getElementById("app");
 
+supabase.auth.getSession().then(({ data, error }) => {
+  if (error) {
+    console.error("Supabase error:", error.message);
+  } else {
+    console.log("Varnam Sarees Supabase connection ready!");
+  }
+});
+
 const whatsappNumber = "919788417352";
 
 const categories = [
